@@ -70,10 +70,10 @@ public class Player : MonoBehaviour {
 	}
 
 	void Jump () {
-		rigidbody2D.AddForce(transform.up * force);
+		GetComponent<Rigidbody2D>().AddForce(transform.up * force);
 		jumpTime = jumpDelay;
 		jumped   = true;
-		audio.clip = audioJump;
+		GetComponent<AudioSource>().clip = audioJump;
 		AudioSource.PlayClipAtPoint (audioJump, transform.position); // toca o clip na posiçao do transform
 		animator.SetTrigger("jump");
 	}

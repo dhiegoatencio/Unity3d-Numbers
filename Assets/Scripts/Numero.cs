@@ -38,7 +38,7 @@ public class Numero : MonoBehaviour {
 	}
 
 	void SomColetar() {
-		audio.clip = clip;
+		GetComponent<AudioSource>().clip = clip;
 		AudioSource.PlayClipAtPoint (clip, transform.position); // toca o clip na posiçao do transform
 	}
 }

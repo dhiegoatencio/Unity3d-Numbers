@@ -20,11 +20,11 @@ public class Score : MonoBehaviour {
 	void AtualizaInf () {
 		if (ExibeDoor) {
 			if (gerenciador.quantidadeAColetar <= 0)
-				guiText.text = "$: " + vShop + "    *** The door is open! ***";
+				GetComponent<GUIText>().text = "$: " + vShop + "    *** The door is open! ***";
 			else
-				guiText.text = "$: " + vShop + "    Door: " + gerenciador.quantidadeAColetar;
+				GetComponent<GUIText>().text = "$: " + vShop + "    Door: " + gerenciador.quantidadeAColetar;
 		} else
-			guiText.text = "$: " +vShop;
+			GetComponent<GUIText>().text = "$: " +vShop;
 	}
 
 	public void AddScore(int _ponto) {

@@ -30,7 +30,7 @@ public class Killer : MonoBehaviour {
 	}
 
 	void SomAoTocarNoMenino() {
-		audio.clip = audioAoTocarPlayer;
+		GetComponent<AudioSource>().clip = audioAoTocarPlayer;
 		AudioSource.PlayClipAtPoint (audioAoTocarPlayer, transform.position); // toca o clip na posiçao do transform
 	}
 }

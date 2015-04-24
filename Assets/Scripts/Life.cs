@@ -8,7 +8,7 @@ public class Life : MonoBehaviour {
 	private int contador;
 	
 	void Start () {
-		guiTexture.texture = VidaAtual [0]; //seta por default a texture da posiçao 1 do array (3 lifes)
+		GetComponent<GUITexture>().texture = VidaAtual [0]; //seta por default a texture da posiçao 1 do array (3 lifes)
 		vidas = VidaAtual.Length;          //armazena de forma privada a quantidade de vidas (3 vidas)
 	}
 	
@@ -24,7 +24,7 @@ public class Life : MonoBehaviour {
 
 		if (contador < (vidas - 1)) {
 			contador += 1;
-			guiTexture.texture = VidaAtual [contador]; //seta a textura da quantidade de vidas atual
+			GetComponent<GUITexture>().texture = VidaAtual [contador]; //seta a textura da quantidade de vidas atual
 			return true;
 		} else {
 			return false;

@@ -42,7 +42,7 @@ public class Bomba : MonoBehaviour {
 	}
 
 	void SomBombaTocouNoMenino() {
-		audio.clip = audioAoTocarPlayer;
+		GetComponent<AudioSource>().clip = audioAoTocarPlayer;
 		AudioSource.PlayClipAtPoint (audioAoTocarPlayer, transform.position); // toca o clip na posiçao do transform
 	}
 }
