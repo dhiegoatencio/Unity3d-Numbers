@@ -8,8 +8,14 @@ public class Score : MonoBehaviour {
 	private Gerenciador gerenciador;
 	private int vShop;
 	public bool ExibeDoor = true;
+	public Transform prefebAnimDoor;
 
-	//void Awake() {instance = this;}
+	private bool showedAnimDoor = false;
+
+	void Awake() {
+		showedAnimDoor = false;
+		instance = this;
+	}
 
 	void Start () {
 		gerenciador = FindObjectOfType (typeof(Gerenciador)) as Gerenciador;
@@ -19,9 +25,10 @@ public class Score : MonoBehaviour {
 	
 	void AtualizaInf () {
 		if (ExibeDoor) {
-			if (gerenciador.quantidadeAColetar <= 0)
-				GetComponent<GUIText>().text = "$: " + vShop + "    *** The door is open! ***";
-			else
+			if (gerenciador.quantidadeAColetar <= 0) {
+				GetComponent<GUIText>().text = "$: " + vShop;
+				AnimacaoPorta();
+			} else
 				GetComponent<GUIText>().text = "$: " + vShop + "    Door: " + gerenciador.quantidadeAColetar;
 		} else
 			GetComponent<GUIText>().text = "$: " +vShop;
@@ -43,5 +50,14 @@ public class Score : MonoBehaviour {
 
 	public int GetShop() {
 		return vShop;
+	}
+
+	private void AnimacaoPorta() {
+		if (!showedAnimDoor) {
+			//showedAnimDoor = true;
+			Transform door = (Transform)Instantiate (this.prefebAnimDoor,
+		                                             Camera.main.WorldToViewportPoint (GameObject.Find ("Player").transform.position),
+		                                             Quaternion.identity);
+		}
 	}
 }
