@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class Player : MonoBehaviour {
 
 	public Transform player;
 	private Animator animator;
+	private int direction = 0; // -1 = left / 1 = right
 
 	public bool isGrounded;
 	public float force;
@@ -18,10 +20,6 @@ public class Player : MonoBehaviour {
 	public Transform ground;
 
 	public bool disableTouches;
-
-	public GUITexture ButtonLeft;
-	public GUITexture ButtonRight;
-	public GUITexture ButtonJump;
 
 	public AudioClip audioJump;
 
@@ -48,34 +46,27 @@ public class Player : MonoBehaviour {
 			animator.SetTrigger ("ground");
 		}
 	}
-	
+
 	void Movimentar(){
-		//movimentos pelo touchscreen
-		foreach (Touch touch in Input.touches) {	
-			if (ButtonLeft.HitTest (touch.position))
-					MoveToLeft ();
-			if (ButtonRight.HitTest (touch.position))
-					MoveToRight ();
-			if (ButtonJump.HitTest (touch.position) && CanJump () && touch.phase == TouchPhase.Began)
-					Jump ();
-		}
 
 		//movimentos pelo teclado   (direcionais e barra de espaço)
-		if (Input.GetAxisRaw ("Horizontal") > 0)
+		if ((Input.GetAxisRaw ("Horizontal") > 0) || direction == 1)
 				MoveToRight ();
-		if (Input.GetAxisRaw ("Horizontal") < 0)
+		else if (Input.GetAxisRaw ("Horizontal") < 0 || direction == -1)
 				MoveToLeft ();
 		if (Input.GetButtonDown ("Jump") && CanJump ())
 				Jump ();
 	}
 
-	void Jump () {
-		GetComponent<Rigidbody2D>().AddForce(transform.up * force);
-		jumpTime = jumpDelay;
-		jumped   = true;
-		GetComponent<AudioSource>().clip = audioJump;
-		AudioSource.PlayClipAtPoint (audioJump, transform.position); // toca o clip na posiçao do transform
-		animator.SetTrigger("jump");
+	public void Jump () {
+		if (CanJump ()) {
+			GetComponent<Rigidbody2D>().AddForce(transform.up * force);
+			jumpTime = jumpDelay;
+			jumped   = true;
+			GetComponent<AudioSource>().clip = audioJump;
+			AudioSource.PlayClipAtPoint (audioJump, transform.position); // toca o clip na posiçao do transform
+			animator.SetTrigger("jump");
+		}
 	}
  
 	void MoveToRight () {
@@ -100,5 +91,8 @@ public class Player : MonoBehaviour {
 			}
 		}
 	}
-	
+
+	public void SetTouchDirection(int dir) {
+		this.direction = dir;
+	}
 }
