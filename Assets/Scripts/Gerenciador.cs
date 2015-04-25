@@ -1,20 +1,48 @@
 ﻿using UnityEngine;
+using UnityEngine.Advertisements;
 using System.Collections;
 
 public class Gerenciador : MonoBehaviour {
-
-
+	
 	public Vector2 posicaoInicialPlayer;
 	public Transform player;
 	public int levelAtual;
 	public int proximoLevel;
 	public int quantidadeAColetar = 20;
+	private bool adsShowed = false;
+
+	void Start() {
+		if (Advertisement.isSupported) {
+			Advertisement.allowPrecache = true;
+			Advertisement.Initialize("34512", false); //set to false before commit (true is used for test mode)
+		} else
+			Debug.Log("ADS nao suportado.");
+	}
 
 	void Awake() {
+		adsShowed = false; // one time per level
 		if (player != null)
 			posicaoInicialPlayer = player.position;
 	}
-	
+
+	void Update() {
+		if ((adsShowed == false) &&
+		    (Advertisement.isReady()) &&
+		    (levelAtual != 0) // don't show ADS in menu/stages/gameover
+		    ) {
+
+			//show with default zone, pause engine and print result to debug log
+			Advertisement.Show(null, new ShowOptions{
+				pause = true,
+				resultCallback = result =>
+				{
+					Debug.Log(result.ToString());
+				}
+			});
+			adsShowed = true;
+		}
+	}
+
 	public bool isColetado() {  //se for verdadeiro passa de fase, senao fica na fase atual
 		return quantidadeAColetar <= 0;
 	}

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Advertisements;
 using System.Collections;
 
 public class Inimigo : MonoBehaviour {
@@ -20,9 +21,11 @@ public class Inimigo : MonoBehaviour {
 	void Start () {} // Use this for initialization
 
 	void Update () { // Update is called once per frame
-		Movimentar ();
-		RayCasting ();
-		Behaviours ();
+		if (!Advertisement.isShowing) {
+			Movimentar ();
+			RayCasting ();
+			Behaviours ();
+		}
 	}
 
 	void RayCasting() {
