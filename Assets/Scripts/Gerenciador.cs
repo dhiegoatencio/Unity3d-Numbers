@@ -27,19 +27,28 @@ public class Gerenciador : MonoBehaviour {
 
 	void Update() {
 		if ((adsShowed == false) &&
-		    (Advertisement.isReady()) &&
-		    (levelAtual != 0) // don't show ADS in menu/stages/gameover
+		    (!Advertisement.isShowing) &&
+			(Advertisement.isReady ("pictureZone")) &&
+			(levelAtual != 0) // don't show ADS in menu/stages/gameover
 		    ) {
 
 			//show with default zone, pause engine and print result to debug log
-			Advertisement.Show(null, new ShowOptions{
-				pause = true,
-				resultCallback = result =>
+			Advertisement.Show ("pictureZone", new ShowOptions{
+				pause = true,  //pause game while ads are show
+				resultCallback = result =>  //triggered when the ad is closed
 				{
 					Debug.Log(result.ToString());
 				}
 			});
 			adsShowed = true;
+		} else {
+
+			if (!Advertisement.isShowing && Input.GetKeyDown (KeyCode.Escape)) {
+			    if (Application.loadedLevelName == "Menu")
+					Application.Quit();
+				else
+					Application.LoadLevel("Menu");
+			}
 		}
 	}
 

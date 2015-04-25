@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Advertisements;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
@@ -33,17 +34,19 @@ public class Player : MonoBehaviour {
 
 	void Update () { // Update is called once per frame
 
-		isGrounded = Physics2D.Linecast (this.transform.position,
+		if (!Advertisement.isShowing) { // impede do personagem se movimentos ao exibir ads
+
+			isGrounded = Physics2D.Linecast (this.transform.position,
 		                                 ground.position,
 		                                 1 << LayerMask.NameToLayer ("Plataforma"));
-		animator.SetFloat ("run", Mathf.Abs (Input.GetAxis ("Horizontal")));
+			animator.SetFloat ("run", Mathf.Abs (Input.GetAxis ("Horizontal")));
+			Movimentar ();
 
-		Movimentar();
-
-		jumpTime -= Time.deltaTime;
-		if (jumpTime <= 0 && isGrounded && jumped) {
-			jumped = false;
-			animator.SetTrigger ("ground");
+			jumpTime -= Time.deltaTime;
+			if (jumpTime <= 0 && isGrounded && jumped) {
+				jumped = false;
+				animator.SetTrigger ("ground");
+			}
 		}
 	}
 
