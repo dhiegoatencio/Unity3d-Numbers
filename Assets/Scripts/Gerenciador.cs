@@ -28,12 +28,12 @@ public class Gerenciador : MonoBehaviour {
 	void Update() {
 		if ((adsShowed == false) &&
 		    (!Advertisement.isShowing) &&
-			(Advertisement.isReady ("pictureZone")) &&
+			(Advertisement.isReady ()) &&
 			(levelAtual != 0) // don't show ADS in menu/stages/gameover
 		    ) {
 
 			//show with default zone, pause engine and print result to debug log
-			Advertisement.Show ("pictureZone", new ShowOptions{
+			Advertisement.Show (null, new ShowOptions{
 				pause = true,  //pause game while ads are show
 				resultCallback = result =>  //triggered when the ad is closed
 				{
