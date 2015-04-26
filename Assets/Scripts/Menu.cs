@@ -18,9 +18,9 @@ public class Menu : MonoBehaviour {
 	
 	void OnGUI () {
 		GUI.skin = skinMenu;
-		GUI.DrawTexture (new Rect (Screen.width * 0.5f - titulo.width * 0.5f, 50,
+		/*GUI.DrawTexture (new Rect (Screen.width * 0.5f - titulo.width * 0.5f, 50,
 		                           titulo.width, titulo.height),
-		                 titulo);
+		                 titulo);*/
 		GUIPlay ();
 		GUISair ();
 		GUIStages ();
@@ -28,7 +28,7 @@ public class Menu : MonoBehaviour {
 
 	void GUIStages () {
 		bool vStages = GUI.Button (new Rect (Screen.width * 0.5f  - btnMenuStages.width * 0.5f,
-		                                     Screen.height * 0.4f + btnMenuStages.height,
+		                                     Screen.height * 0.3f + btnMenuStages.height,
 		                                     198, 80),
 		                           btnMenuStages);
 
@@ -39,7 +39,7 @@ public class Menu : MonoBehaviour {
 
 	void GUIPlay() {
 		bool vPlay = GUI.Button (new Rect (Screen.width * 0.5f - btnMenuPlay.width * 0.5f,
-		                                   Screen.height * 0.4f,
+		                                   Screen.height * 0.3f,
 		                                   150, 80),
 		                            btnMenuPlay);
 		if (vPlay) {

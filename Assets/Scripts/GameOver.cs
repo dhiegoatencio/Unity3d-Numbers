@@ -10,10 +10,13 @@ public class GameOver : MonoBehaviour {
 
 	void OnGUI () {
 		GUI.skin = skin;
-		GUI.DrawTexture (new Rect (Screen.width * 0.5f - imgGameOver.width * 0.5f, 50,
+		if (imgGameOver != null) {
+
+			GUI.DrawTexture (new Rect (Screen.width * 0.5f - imgGameOver.width * 0.5f, 50,
 		                           imgGameOver.width, imgGameOver.height),
 		                 imgGameOver);
 
+		}
 		Navegacao.GUIBotaoVoltar (btnVoltar);
 	}
 }
