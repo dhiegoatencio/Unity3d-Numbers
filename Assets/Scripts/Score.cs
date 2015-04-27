@@ -26,12 +26,12 @@ public class Score : MonoBehaviour {
 	void AtualizaInf () {
 		if (ExibeDoor) {
 			if (gerenciador.quantidadeAColetar <= 0) {
-				GetComponent<GUIText>().text = "$: " + vShop;
+				GetComponent<GUIText>().text = "$ " + vShop;
 				AnimacaoPorta();
 			} else
-				GetComponent<GUIText>().text = "$: " + vShop + "    Door: " + gerenciador.quantidadeAColetar;
+				GetComponent<GUIText>().text = "$ " + vShop + "    Door " + gerenciador.quantidadeAColetar;
 		} else
-			GetComponent<GUIText>().text = "$: " +vShop;
+			GetComponent<GUIText>().text = "$ " +vShop;
 	}
 
 	public void AddScore(int _ponto) {
@@ -54,10 +54,9 @@ public class Score : MonoBehaviour {
 
 	private void AnimacaoPorta() {
 		if (!showedAnimDoor) {
-			//showedAnimDoor = true;
-			Transform door = (Transform)Instantiate (this.prefebAnimDoor,
-		                                             Camera.main.WorldToViewportPoint (GameObject.Find ("Player").transform.position),
-		                                             Quaternion.identity);
+			Instantiate (this.prefebAnimDoor,
+		                 Camera.main.WorldToViewportPoint (GameObject.Find ("Player").transform.position),
+		                 Quaternion.identity);
 		}
 	}
 }
