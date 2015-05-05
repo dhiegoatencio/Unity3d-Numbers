@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using StartApp;
 
 public class Menu : MonoBehaviour {
 
@@ -12,8 +13,18 @@ public class Menu : MonoBehaviour {
 
 	private Gerenciador gerenciador;
 
+	void destroyTopADS() {
+		#if UNITY_ANDROID
+		StartAppWrapper.removeBanner(StartAppWrapper.BannerPosition.TOP);
+		#endif
+	}
+
 	void Start () {
 		gerenciador = FindObjectOfType (typeof(Gerenciador)) as Gerenciador;
+		#if UNITY_ANDROID
+			StartAppWrapper.addBanner (StartAppWrapper.BannerType.AUTOMATIC,
+										StartAppWrapper.BannerPosition.TOP);
+		#endif
 	}
 	
 	void OnGUI () {
@@ -33,6 +44,7 @@ public class Menu : MonoBehaviour {
 		                           btnMenuStages);
 
 		if (vStages) {
+			destroyTopADS();
 			Application.LoadLevel("Stages");
 		}
 	}
@@ -43,6 +55,7 @@ public class Menu : MonoBehaviour {
 		                                   150, 80),
 		                            btnMenuPlay);
 		if (vPlay) {
+			destroyTopADS();
 			gerenciador.ProximoLevel (gerenciador.proximoLevel);
 			Score.Inicializar ();
 		}

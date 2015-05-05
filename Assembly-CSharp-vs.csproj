@@ -65,9 +65,13 @@
      <Compile Include="Assets\Scripts\Stages\StagesMenu.cs" />
      <Compile Include="Assets\Scripts\Touch\Controles.cs" />
      <Compile Include="Assets\Scripts\Touch\TouchLogic.cs" />
+     <Compile Include="Assets\StartAppBackPlugin.cs" />
+     <Compile Include="Assets\StartAppWrapper.cs" />
      <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
      <None Include="Assets\Plugins\Android\unityads\build.xml" />
+     <None Include="Assets\Resources\StartAppData.txt" />
      <None Include="Assets\Plugins\Android\unityads\res\values\strings.xml" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
