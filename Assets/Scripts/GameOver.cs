@@ -6,17 +6,8 @@ using StartApp;
 public class GameOver : MonoBehaviour {
 
 	public GUISkin skin;
-
 	public Texture2D imgGameOver;
 	public Texture2D btnVoltar;
-
-	void start() {
-		#if UNITY_ANDROID
-		StartAppWrapper.addBanner (
-			StartAppWrapper.BannerType.AUTOMATIC,
-			StartAppWrapper.BannerPosition.TOP);
-		#endif
-	}
 
 	void OnGUI () {
 		GUI.skin = skin;
@@ -27,12 +18,24 @@ public class GameOver : MonoBehaviour {
 		                 imgGameOver);
 
 		}
-		Navegacao.GUIBotaoVoltar (btnVoltar);
+
+		bool vSair = GUI.Button (new Rect (Screen.width - 100, Screen.height - 100,
+		                                   100, 100),
+		                         btnVoltar);
+
+		#if UNITY_ANDROID
+		StartAppWrapper.addBanner (
+			StartAppWrapper.BannerType.AUTOMATIC,
+			StartAppWrapper.BannerPosition.TOP);
+		#endif
+
+		if (vSair) {
+			#if UNITY_ANDROID
+			StartAppWrapper.removeBanner(StartAppWrapper.BannerPosition.TOP);
+			#endif
+			Application.LoadLevel (0);
+		}
+
 	}
 
-	void OnDestroy() {
-		#if UNITY_ANDROID
-		StartAppWrapper.removeBanner(StartAppWrapper.BannerPosition.TOP);
-		#endif
-	}
 }
