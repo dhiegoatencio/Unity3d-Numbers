@@ -23,14 +23,14 @@ public class GameOver : MonoBehaviour {
 		                                   100, 100),
 		                         btnVoltar);
 
-		#if UNITY_ANDROID
+		#if UNITY_ANDROID && !UNITY_EDITOR
 		StartAppWrapper.addBanner (
 			StartAppWrapper.BannerType.AUTOMATIC,
 			StartAppWrapper.BannerPosition.TOP);
 		#endif
 
 		if (vSair) {
-			#if UNITY_ANDROID
+			#if UNITY_ANDROID && !UNITY_EDITOR
 			StartAppWrapper.removeBanner(StartAppWrapper.BannerPosition.TOP);
 			#endif
 			Application.LoadLevel (0);

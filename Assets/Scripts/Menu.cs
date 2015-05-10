@@ -14,14 +14,14 @@ public class Menu : MonoBehaviour {
 	private Gerenciador gerenciador;
 
 	void destroyTopADS() {
-		#if UNITY_ANDROID
+		#if UNITY_ANDROID && !UNITY_EDITOR
 		StartAppWrapper.removeBanner(StartAppWrapper.BannerPosition.TOP);
 		#endif
 	}
 
 	void Start () {
 		gerenciador = FindObjectOfType (typeof(Gerenciador)) as Gerenciador;
-		#if UNITY_ANDROID
+		#if UNITY_ANDROID && !UNITY_EDITOR
 			StartAppWrapper.addBanner (StartAppWrapper.BannerType.AUTOMATIC,
 										StartAppWrapper.BannerPosition.TOP);
 		#endif
