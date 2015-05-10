@@ -22,8 +22,8 @@ public class Menu : MonoBehaviour {
 	void Start () {
 		gerenciador = FindObjectOfType (typeof(Gerenciador)) as Gerenciador;
 		#if UNITY_ANDROID && !UNITY_EDITOR
-			StartAppWrapper.addBanner (StartAppWrapper.BannerType.AUTOMATIC,
-										StartAppWrapper.BannerPosition.TOP);
+			StartAppWrapper.addBanner (StartAppWrapper.BannerType.STANDARD,
+									   StartAppWrapper.BannerPosition.TOP);
 		#endif
 	}
 	

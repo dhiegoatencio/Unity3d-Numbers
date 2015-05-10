@@ -25,7 +25,7 @@ public class GameOver : MonoBehaviour {
 
 		#if UNITY_ANDROID && !UNITY_EDITOR
 		StartAppWrapper.addBanner (
-			StartAppWrapper.BannerType.AUTOMATIC,
+			StartAppWrapper.BannerType.STANDARD,
 			StartAppWrapper.BannerPosition.TOP);
 		#endif
 
