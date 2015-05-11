@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using StartApp;
-
 
 public class GameOver : MonoBehaviour {
 
@@ -23,16 +21,10 @@ public class GameOver : MonoBehaviour {
 		                                   100, 100),
 		                         btnVoltar);
 
-		#if UNITY_ANDROID && !UNITY_EDITOR
-		StartAppWrapper.addBanner (
-			StartAppWrapper.BannerType.STANDARD,
-			StartAppWrapper.BannerPosition.TOP);
-		#endif
+		ADS.showTop ();
 
 		if (vSair) {
-			#if UNITY_ANDROID && !UNITY_EDITOR
-			StartAppWrapper.removeBanner(StartAppWrapper.BannerPosition.TOP);
-			#endif
+			ADS.hideAll();
 			Application.LoadLevel (0);
 		}
 

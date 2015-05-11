@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Advertisements;
 using System.Collections;
 
 public class Gerenciador : MonoBehaviour {
@@ -9,46 +8,23 @@ public class Gerenciador : MonoBehaviour {
 	public int levelAtual;
 	public int proximoLevel;
 	public int quantidadeAColetar = 20;
-	private bool adsShowed = false;
 
-	void Start() {
-		if (Advertisement.isSupported) {
-			Advertisement.allowPrecache = true;
-			Advertisement.Initialize("34512", false); //set to false before commit (true is used for test mode)
-		} else
-			Debug.Log("ADS nao suportado.");
-	}
+	public static int levelLoading; // we need access on this variable on LoadingScene
+
+
+	void Start() {}
 
 	void Awake() {
-		adsShowed = false; // one time per level
 		if (player != null)
 			posicaoInicialPlayer = player.position;
 	}
 
 	void Update() {
-		if ((adsShowed == false) &&
-		    (!Advertisement.isShowing) &&
-			(Advertisement.isReady ()) &&
-			(levelAtual != 0) // don't show ADS in menu/stages/gameover
-		    ) {
-
-			//show with default zone, pause engine and print result to debug log
-			Advertisement.Show (null, new ShowOptions{
-				pause = true,  //pause game while ads are show
-				resultCallback = result =>  //triggered when the ad is closed
-				{
-					Debug.Log(result.ToString());
-				}
-			});
-			adsShowed = true;
-		} else {
-
-			if (!Advertisement.isShowing && Input.GetKeyDown (KeyCode.Escape)) {
-			    if (Application.loadedLevelName == "Menu")
-					Application.Quit();
-				else
-					Application.LoadLevel("Menu");
-			}
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+		    if (Application.loadedLevelName == "Menu")
+				Application.Quit();
+			else
+				Application.LoadLevel("Menu");
 		}
 	}
 
@@ -69,6 +45,7 @@ public class Gerenciador : MonoBehaviour {
 	}
 
 	public void ProximoLevel(int level) {
-		Application.LoadLevel (level);
+		levelLoading = level;
+		Application.LoadLevel ("changeLevel"); 
 	}
 }

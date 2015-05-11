@@ -6,12 +6,17 @@ public class LoadingScene : MonoBehaviour {
 
 	private float delay = 4.0f;
 	private float currentTime = 0f;
+	//private Gerenciador gerenciador;
+
 
 	Button buttonObj;
 	Text   textObj;
 
 	private 	
 	void Start () {
+		ADS.showTop ();
+		ADS.showBottom ();
+
 		buttonObj = GameObject.Find ("btnStart").GetComponent<Button>();
 		buttonObj.interactable = false;
 
@@ -30,5 +35,11 @@ public class LoadingScene : MonoBehaviour {
 				//textObj.color
 			}
 		}
+	}
+
+	public void LoadLevel() {
+		ADS.hideAll ();
+		Debug.Log (Gerenciador.levelLoading);
+		Application.LoadLevel (Gerenciador.levelLoading);
 	}
 }

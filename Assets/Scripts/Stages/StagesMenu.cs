@@ -6,6 +6,7 @@ public class StagesMenu : MonoBehaviour {
 	public Texture2D btnVoltar;
 	public GUISkin skin;
 	private Score score;
+	private Gerenciador gerenciador;
 
 	void OnGUI () {
 		ExibeStages ();
@@ -13,6 +14,7 @@ public class StagesMenu : MonoBehaviour {
 
 	void Awake() {
 		score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>() as Score;	
+		gerenciador = FindObjectOfType (typeof(Gerenciador)) as Gerenciador;
 	}
 
 	void ExibeStages() {
@@ -42,12 +44,12 @@ public class StagesMenu : MonoBehaviour {
 			if (GUI.Button(new Rect(10 + largura * (i -2),10 ,largura,altura),
 			               textoBotao)) {
 				if (stageComprado)
-					Application.LoadLevel(i);
+					gerenciador.ProximoLevel (1);
 				else {
 					if (score.GetShop() >= preco) {
 						score.ShopRemove(preco);
 						PlayerPrefs.SetInt("stage" + i.ToString(), 1);
-						Application.LoadLevel(i);
+						gerenciador.ProximoLevel (1);
 					}
 				}
 			}
