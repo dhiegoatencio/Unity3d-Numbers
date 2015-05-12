@@ -7,6 +7,10 @@ public class GameOver : MonoBehaviour {
 	public Texture2D imgGameOver;
 	public Texture2D btnVoltar;
 
+	void Start() {
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
+	}
+
 	void OnGUI () {
 		GUI.skin = skin;
 		if (imgGameOver != null) {

@@ -14,6 +14,7 @@ public class LoadingScene : MonoBehaviour {
 
 	private 	
 	void Start () {
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 		ADS.showTop ();
 		ADS.showBottom ();
 
@@ -34,6 +35,11 @@ public class LoadingScene : MonoBehaviour {
 				textObj.text = "Press Play";
 				//textObj.color
 			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			ADS.hideAll ();
+			Application.LoadLevel("Menu");
 		}
 	}
 
