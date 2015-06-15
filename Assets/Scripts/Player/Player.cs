@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.Advertisements;
+//using UnityEngine.Advertisements;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour {
 
 	void Update () { // Update is called once per frame
 
-		if (!Advertisement.isShowing) { // impede do personagem se movimentos ao exibir ads
+		//if (!Advertisement.isShowing) { // impede do personagem se movimentos ao exibir ads
 
 			isGrounded = Physics2D.Linecast (this.transform.position,
 		                                 ground.position,
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour {
 				jumped = false;
 				animator.SetTrigger ("ground");
 			}
-		}
+		//}
 	}
 
 	void Movimentar(){

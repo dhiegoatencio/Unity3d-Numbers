@@ -15,8 +15,8 @@ public class LoadingScene : MonoBehaviour {
 	private 	
 	void Start () {
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
-		ADS.showTop ();
-		ADS.showBottom ();
+		//ADS.showTop ();
+		//ADS.showBottom ();
 
 		buttonObj = GameObject.Find ("btnStart").GetComponent<Button>();
 		buttonObj.interactable = false;
@@ -38,13 +38,13 @@ public class LoadingScene : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			ADS.hideAll ();
+			//ADS.hideAll ();
 			Application.LoadLevel("Menu");
 		}
 	}
 
 	public void LoadLevel() {
-		ADS.hideAll ();
+		//ADS.hideAll ();
 		Debug.Log (Gerenciador.levelLoading);
 		Application.LoadLevel (Gerenciador.levelLoading);
 	}

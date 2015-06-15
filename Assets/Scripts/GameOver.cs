@@ -25,10 +25,10 @@ public class GameOver : MonoBehaviour {
 		                                   100, 100),
 		                         btnVoltar);
 
-		ADS.showTop ();
+		//ADS.showTop ();
 
 		if (vSair) {
-			ADS.hideAll();
+			//ADS.hideAll();
 			Application.LoadLevel (0);
 		}
 

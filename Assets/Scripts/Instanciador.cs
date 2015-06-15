@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.Advertisements;
+//using UnityEngine.Advertisements;
 using System.Collections;
 
 public class Instanciador : MonoBehaviour {
@@ -27,18 +27,18 @@ public class Instanciador : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!Advertisement.isShowing) 
+		//if (!Advertisement.isShowing) 
 			Movimentar ();
 	}
 
 	void Spawn() {
-		if (!Advertisement.isShowing) {
+		//if (!Advertisement.isShowing) {
 			int index = Random.Range (valorMinimoRandom, objetos.Length);
 
 			Instantiate (objetos [index], // o objeto que foi sorteado no random
 		            transform.position, //a posiçao do Instanciador
 		            objetos [index].transform.rotation); //pega a mesma rotaçao do Numero (objeto) 
-		}
+		//}
 	}
 
 	void Movimentar() {

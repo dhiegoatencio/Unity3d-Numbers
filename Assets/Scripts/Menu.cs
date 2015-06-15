@@ -15,7 +15,7 @@ public class Menu : MonoBehaviour {
 	void Start () {
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 		gerenciador = FindObjectOfType (typeof(Gerenciador)) as Gerenciador;
-		ADS.showTop ();
+		//ADS.showTop ();
 	}
 
 	void Update() {
@@ -62,7 +62,7 @@ public class Menu : MonoBehaviour {
 		                                   150, 80),
 		                            btnMenuPlay);
 		if (vPlay) {
-			ADS.hideAll();
+			//ADS.hideAll();
 			gerenciador.ProximoLevel (gerenciador.proximoLevel);
 			Score.Inicializar ();
 		}
