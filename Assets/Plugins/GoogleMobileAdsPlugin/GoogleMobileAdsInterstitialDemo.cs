@@ -7,8 +7,10 @@ public class GoogleMobileAdsInterstitialDemo : MonoBehaviour {
 	public bool testing = true;
 	void Start()
 	{
+		#if UNITY_ANDROID && !UNITY_EDITOR
 		GoogleMobileAdsPlugin.CreateInterstitial(PublisherId);
 		GoogleMobileAdsPlugin.RequestInterstitial(testing);
+		#endif
 	}
 
 	void OnEnable()

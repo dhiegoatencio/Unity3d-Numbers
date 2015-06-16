@@ -8,8 +8,10 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour {
 
     void Start()
     {
+		#if UNITY_ANDROID && !UNITY_EDITOR
 		GoogleMobileAdsPlugin.CreateBannerView(PublisherId, GoogleMobileAdsPlugin.AdSize.SmartBanner, true);
 		GoogleMobileAdsPlugin.RequestBannerAd(testing);
+		#endif
     }
 
     void OnEnable()

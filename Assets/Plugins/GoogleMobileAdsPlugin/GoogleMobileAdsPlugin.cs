@@ -43,9 +43,11 @@ public class GoogleMobileAdsPlugin : MonoBehaviour {
 
     void Awake()
     {
+		#if UNITY_ANDROID && !UNITY_EDITOR
         gameObject.name = this.GetType().ToString();
         SetCallbackHandlerName(gameObject.name);
         DontDestroyOnLoad(this);
+		#endif
     }
 
 	public static void CreateInterstitial( string publisherId )
