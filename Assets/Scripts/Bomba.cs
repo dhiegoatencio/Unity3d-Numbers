@@ -12,6 +12,7 @@ public class Bomba : MonoBehaviour {
 	private Life life;
 	private Gerenciador gerenciador;
 
+
 	void Awake() {
 		gerenciador = FindObjectOfType (typeof(Gerenciador)) as Gerenciador;
 	}
@@ -36,7 +37,9 @@ public class Bomba : MonoBehaviour {
 				Destroy(gameObject);
 				gerenciador.StartGame();
 			} else {
-			    gerenciador.GameOver("GameOver");
+				SomBombaTocouNoMenino();
+				Destroy(gameObject);
+				gerenciador.showPanelVideoAds();
 			}
 		}
 	}

@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_5_2_0;UNITY_5_2;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_REFLECTION_BUFFERS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_5_2_0;UNITY_5_2;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_REFLECTION_BUFFERS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Bomba.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\CameraFollow2.cs" />
+     <Compile Include="Assets\Scripts\ExtraLifePanel.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
      <Compile Include="Assets\Scripts\Gerenciador.cs" />
      <Compile Include="Assets\Scripts\Inimigo.cs" />
@@ -67,12 +68,15 @@
      <Compile Include="Assets\Scripts\Touch\TouchLogic.cs" />
      <Compile Include="Assets\StartAppBackPlugin.cs" />
      <Compile Include="Assets\StartAppWrapper.cs" />
+     <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_view_video_play.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-lt\strings.xml" />
+     <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-ca\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-zh-rHK\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-ko\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\proguard.txt" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\unityads\build.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-lv\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-ja\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-pl\strings.xml" />
@@ -80,6 +84,7 @@
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-ka-rGE\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\color\common_signin_btn_text_light.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-th\strings.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_button_audio_toggle.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-pt-rPT\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\bin\R.txt" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-sk\strings.xml" />
@@ -95,6 +100,7 @@
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-uk\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-es\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-hy-rAM\strings.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_background_button_pause.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-pt-rBR\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-en-rIN\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\bin\AndroidManifest.xml" />
@@ -110,17 +116,22 @@
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-el\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-in\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-hu\strings.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_triangle.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\values\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-sw\strings.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_waves.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\color\common_signin_btn_text_dark.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-bg\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-es-rUS\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\README.txt" />
+     <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_base.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-cs\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-ru\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-et-rEE\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-iw\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\drawable\common_signin_btn_text_light.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-sr\strings.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_play.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-af\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-hi\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values\version.xml" />
@@ -136,22 +147,19 @@
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-zh-rTW\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-zh-rCN\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-it\strings.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_button_pause.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_view_video_paused.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-sl\strings.xml" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values\maps_attrs.xml" />
+     <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-tl\strings.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-fr-rCA\strings.xml" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

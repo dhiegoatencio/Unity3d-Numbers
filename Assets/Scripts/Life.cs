@@ -17,6 +17,10 @@ public class Life : MonoBehaviour {
 	
 	}
 
+	void setTextura() {
+		GetComponent<GUITexture>().texture = VidaAtual [contador]; //seta a textura da quantidade de vidas atual
+	}
+
 	public bool ExcluirVida() {
 		if (vidas < 0) {
 			return false;
@@ -24,10 +28,15 @@ public class Life : MonoBehaviour {
 
 		if (contador < (vidas - 1)) {
 			contador += 1;
-			GetComponent<GUITexture>().texture = VidaAtual [contador]; //seta a textura da quantidade de vidas atual
+			setTextura();
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	public void AddVida() {
+		contador -= 1;
+		setTextura();
 	}
 }
